@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Coinxwallet — Mini App</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <img src="logo.svg" alt="Coinxwallet" class="logo"/>
+      <div class="title">
+        <div class="name">Coinxwallet</div>
+        <div class="subtitle">Private exchange — TRC20 deposits</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="balance-card">
+        <div class="balance-left">
+          <div class="label">Total Balance</div>
+          <div id="balance" class="balance-value">$0.00</div>
+        </div>
+        <div class="actions">
+          <button id="depositBtn" class="btn">Deposit</button>
+          <button id="withdrawBtn" class="btn ghost">Withdraw</button>
+        </div>
+      </section>
+
+      <section id="dashboard" class="panel">
+        <h3>Portfolio (sample)</h3>
+        <div class="portfolio-row"><span>USDT</span><span>1000.00</span></div>
+        <div class="portfolio-row"><span>BTC</span><span>0.005</span></div>
+        <div class="portfolio-row"><span>ETH</span><span>0.12</span></div>
+      </section>
+
+      <section id="deposit" class="panel hidden">
+        <h3>Deposit USDT (TRC20)</h3>
+        <p class="warning">Only send <strong>USDT (TRC20)</strong> to this address. Other assets will be lost.</p>
+        <div class="qrwrap">
+          <img src="qr.png" alt="QR Code" class="qr" />
+        </div>
+        <div class="addr">
+          <code id="tronAddress">TFdaN3zUoKCWWYjDqYWKaC3ECyzPwmDP4V</code>
+          <button id="copyBtn" class="small">Copy</button>
+        </div>
+        <p class="hint">Scan the QR or copy the address to send USDT (TRC20).</p>
+        <button id="markPaid" class="btn full">I have sent funds (Mark as Paid)</button>
+      </section>
+
+      <section id="withdraw" class="panel hidden">
+        <h3>Withdraw</h3>
+        <p>Submit a withdrawal request — admin will process manually.</p>
+        <form id="withdrawForm">
+          <label>TRON Address</label>
+          <input id="wAddress" placeholder="T..." required />
+          <label>Amount (USDT)</label>
+          <input id="wAmount" type="number" step="0.0001" placeholder="0.00" required />
+          <button type="submit" class="btn full">Request Withdraw</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="foot">
+      <small>Built for a private group. Powered by Coinxwallet.</small>
+    </footer>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
